@@ -1,5 +1,5 @@
 "如何引用此文件
-"source ~/.base_vimrc
+"source ~/vimconfig/vimrc_base
 
 
 "基础设置
