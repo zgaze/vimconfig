@@ -1,5 +1,5 @@
 "如何引入此文件
-"source $path/.vimrc_title
+"source ~/vimconfig/vimrc_title
 
 "-- 自动插入文件头 --
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.sh,*.java  exec ":call SetTitle()" 
