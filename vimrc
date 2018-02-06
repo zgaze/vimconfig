@@ -36,6 +36,7 @@ Plugin 'eparreno/vim-l9'
 " ycm 和上面那个启用一个就ok
 Plugin 'Valloric/YouCompleteMe'
 source ~/vimconfig/ycm.vim
+Plugin 'a.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

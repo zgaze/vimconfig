@@ -24,7 +24,7 @@ let g:ycm_enable_diagnostic_signs = 1
 "---Syntastic配置----- 
 let g:syntastic_check_on_open = 1
 "补全路径
-let g:syntastic_cpp_include_dirs = ['/usr/include/', '/usr/local/include/', '/usr/include/c++/4.9.2/', '/usr/include/linux', '/usr/include/c++/4.8.5/x86_64-redhat-linux/','/usr/local/include/google/','/usr/local/include/google/protobuf/', ]
+let g:syntastic_cpp_include_dirs = ['/usr/include/', '/usr/local/include/', '/usr/include/c++/4.9.2/', '/usr/include/linux', '/usr/include/c++/4.8.5/x86_64-redhat-linux/','/usr/local/include/google/','/usr/local/include/google/protobuf/','/usr/local/include/gtest/', ]
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
@@ -43,3 +43,9 @@ set completeopt-=preview
 "let g:ycm_autoclose_preview_window_after_completion = 1
 "在用户离开插入模式后自动关闭窗口
 "let g:ycm_autoclose_preview_window_after_insertion = 1
+"
+"跳转 按gb 会跳转到定义
+"默认 CTRL-I to jump forward ,CTRL-O to jump back
+"nnoremap <leader>jl :YcmCompleter GoToDeclaration<CR>
+"nnoremap <leader>jf :YcmCompleter GoToDefinition<CR>
+"nnoremap <leader>gb :YcmCompleter GoToDefinitionElseDeclaration<CR>
