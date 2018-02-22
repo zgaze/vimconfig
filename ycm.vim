@@ -24,7 +24,7 @@ let g:ycm_enable_diagnostic_signs = 1
 "---Syntastic配置----- 
 let g:syntastic_check_on_open = 1
 "补全路径
-let g:syntastic_cpp_include_dirs = ['/usr/include/', '/usr/local/include/', '/usr/include/c++/4.9.2/', '/usr/include/linux', '/usr/include/c++/4.8.5/x86_64-redhat-linux/','/usr/local/include/google/','/usr/local/include/google/protobuf/','/usr/local/include/gtest/', ]
+let g:syntastic_cpp_include_dirs = ['/usr/include/', '/usr/local/include/', '/usr/include/c++/4.9.2/', '/usr/include/linux', '/usr/include/c++/4.8.5/x86_64-redhat-linux/','/usr/local/include/google/','/usr/local/include/google/protobuf/','/usr/local/include/gtest/','~/include', ]
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'

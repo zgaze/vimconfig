@@ -21,7 +21,7 @@ set background=dark
 "打开文件回到上次编辑的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 "显示90字符提示线
-"set colorcolumn=91
+"set colorcolumn=81
 
 "搜索
 "搜索时高亮显示被找到的文本
