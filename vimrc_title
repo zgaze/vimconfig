@@ -29,26 +29,26 @@ func SetTitle()
         call append(line(".")+6, " ********************************************************************** */") 
         call append(line(".")+7, "")
     endif
-    if &filetype == 'cpp'
-        call append(line(".")+8, "#include <iostream>")
-        call append(line(".")+9, "")
-        call append(line(".")+10, "int main(int argc, const char* argv[])")
-        call append(line(".")+11, "{"           )
-        call append(line(".")+12, ""            )
-        call append(line(".")+13, "    return 0;")
-        call append(line(".")+14, "}")
-        call append(line(".")+15, "")
-    endif
-    if &filetype == 'c'
-        call append(line(".")+8, "#include <stdio.h>")
-        call append(line(".")+9, "")
-        call append(line(".")+10, "int main(int argc, const char* argv[])")
-        call append(line(".")+11, "{"           )
-        call append(line(".")+12, ""            )
-        call append(line(".")+13, "    return 0;")
-        call append(line(".")+14, "}")
-        call append(line(".")+15, "")
-	endif
+    "if &filetype == 'cpp'
+        "call append(line(".")+8, "#include <iostream>")
+        "call append(line(".")+9, "")
+        "call append(line(".")+10, "int main(int argc, const char* argv[])")
+        "call append(line(".")+11, "{"           )
+        "call append(line(".")+12, ""            )
+        "call append(line(".")+13, "    return 0;")
+        "call append(line(".")+14, "}")
+        "call append(line(".")+15, "")
+    "endif
+    "if &filetype == 'c'
+        "call append(line(".")+8, "#include <stdio.h>")
+        "call append(line(".")+9, "")
+        "call append(line(".")+10, "int main(int argc, const char* argv[])")
+        "call append(line(".")+11, "{"           )
+        "call append(line(".")+12, ""            )
+        "call append(line(".")+13, "    return 0;")
+        "call append(line(".")+14, "}")
+        "call append(line(".")+15, "")
+	"endif
     "新建文件后，自动定位到文件末尾
     autocmd BufNewFile * normal G
 endfunc 
