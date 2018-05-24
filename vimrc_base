@@ -85,16 +85,16 @@ command  W  w
 "set ai
 set autoindent
 "智能的选择对齐方式
-set smartindent
+"set smartindent
 "编辑时将所有Tab替换为空格 
 "set et
-set expandtab
+"set expandtab
 "自动缩进的时候，缩进尺寸为4个空格
 "set sw=4 
 set shiftwidth=4 
 "Tab 宽度为4个字符
 "set ts=4
-set tabstop=4 
+set tabstop=4
 "按一下 Backspace 就删除4个空格
 set smarttab
 "打开 C/C++ 风格的自动缩进
