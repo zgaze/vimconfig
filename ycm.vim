@@ -34,6 +34,13 @@ let g:syntastic_warning_symbol = '!'
 "whether to show balloons
 let g:syntastic_enable_balloons = 1
 
+" 两个字符自动开启语义不全
+let g:ycm_semantic_triggers = {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+            \ 'cs,lua,javascript': ['re!\w{2}'],
+            \ }
+
+
 "补全内容不以分割子窗口形式出现，只显示补全列表
 set completeopt-=preview
 "如果显示子窗口 
