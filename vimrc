@@ -12,12 +12,21 @@ noremap <F8> :TlistToggle<CR>
 noremap <F9> :!ctags -R<CR>
 "au BufRead,BufNewFile [Mm]akefile set filetype=make
 
+" 设置 ctags 对哪些代码标识符生成标签
+set tags=./.tags;,.tags
+" gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+
+" 配置 ctags 的参数
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q','--output-format=e-ctags']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
 " tabNext tabprev
 noremap <F11> : tabn <CR>
 noremap <F12> : tabp <CR>
 "-- Map Setting --
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-noremap <C-w> <C-w>w
 "noremap <F6> :run macros/gdb_mappings.vim <CR><CR> <F7><CR>
 
 
@@ -34,13 +43,15 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'vim-airline/vim-airline'
 " airline主题
 Plugin 'vim-airline/vim-airline-themes'
+" 自动生成tags
+Plugin 'ludovicchabant/vim-gutentags'
 " acp 补全需要的
 Plugin 'eparreno/vim-l9'
 "低配版的自动补全,如果没有ycm就用这个
-"Plugin 'othree/vim-autocomplpop'
+Plugin 'othree/vim-autocomplpop'
 " ycm 和上面那个启用一个就ok
-Plugin 'Valloric/YouCompleteMe'
-source ~/vimconfig/ycm.vim
+"Plugin 'Valloric/YouCompleteMe'
+"source ~/vimconfig/ycm.vim
 Plugin 'a.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,14 +79,6 @@ let g:airline#extensions#whitespace#enabled = 0
 "nnoremap <Leader>ilt :TagbarToggle<CR>
 " 设置标签子窗口的宽度
 let tagbar_width=32
-
-" 设置 ctags 对哪些代码标识符生成标签
-set tags+=./tags
-set tags+=~/xhx_dev/serv_share/trunk/tags
-set tags+=~/xhx_dev/serv_share/cache/tags
-set tags+=~/xhx_dev/dbproxy/trunk/ser/tags
-set tags+=~/xhx_dev/libtaomee/tags
-set tags+=~/xhx_dev/libtaomee++/tags
 
 nnoremap <Leader>sp :CtrlSF<CR>
 
