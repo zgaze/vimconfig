@@ -1,7 +1,6 @@
 "如何引用此文件
 "source ~/vimconfig/vimrc_base
 
-
 "基础设置
 "让 VIM 工作在不兼容模式下,去掉讨厌的有关vi一致性模式，
 "set nocp
@@ -20,8 +19,8 @@ set autochdir
 set background=dark  
 "打开文件回到上次编辑的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-"显示90字符提示线
-"set colorcolumn=81
+"显示80字符提示线
+set colorcolumn=81
 
 "搜索
 "搜索时高亮显示被找到的文本
@@ -89,13 +88,13 @@ set autoindent
 "编辑时将所有Tab替换为空格 
 "set et
 "set expandtab
-"自动缩进的时候，缩进尺寸为4个空格
-"set sw=4 
-set shiftwidth=4 
-"Tab 宽度为4个字符
-"set ts=4
-set tabstop=4
-"按一下 Backspace 就删除4个空格
+"自动缩进的时候，缩进尺寸为2个空格
+"set sw=2
+set shiftwidth=2
+"Tab 宽度为2个字符
+"set ts=2
+set tabstop=2
+"按一下 Backspace 就删除2个空格
 set smarttab
 "打开 C/C++ 风格的自动缩进
 "set cin
@@ -144,9 +143,3 @@ set pastetoggle=<F2>
 
 "打开插件
 filetype plugin indent on
-
-
-
-
-
-

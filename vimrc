@@ -1,86 +1,68 @@
-"load vim基础设置
-source ~/vimconfig/vimrc_base
-"load 配置自动插入文件头
-source ~/vimconfig/vimrc_title
-"配色方案
 colorscheme desert1
 
-"设置快捷键
-"设置taglist打开关闭的快捷键F8
-noremap <F8> :TlistToggle<CR>
-"更新ctags标签文件快捷键设置
-noremap <F9> :!ctags -R<CR>
-"au BufRead,BufNewFile [Mm]akefile set filetype=make
+"plugs
+call plug#begin('~/.vim/plugged')
+"taglist
+Plug 'vim-scripts/taglist.vim'
+"" 漂亮的状态栏
+Plug 'vim-airline/vim-airline'
+" airline主题
+Plug 'vim-airline/vim-airline-themes'
+" coc 自动补全
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" 自动生成tag
+Plug 'ludovicchabant/vim-gutentags'
+"低配版的自动补全,如果没有coc就用这个
+Plug 'skywind3000/vim-auto-popmenu'
+Plug 'vim-scripts/a.vim'
+call plug#end()
 
-" 设置 ctags 对哪些代码标识符生成标签
-set tags=./.tags;,.tags
+" https://github.com/junegunn/vim-plug
+" help
+" :PlugStatus       - lists configured plugins
+" :PlugInstall      - installs plugins; append `!` to update or just
+" :PlugUpgrade      - Upgrade vim-plug itself
+" :PlugUpdate [name ...] [#threads]     - Install or update plugins
+" :PlugSearch foo   - searches for foo; append `!` to refresh local cache
+" :PlugClean        - confirms removal of unused plugins; append `!` to
+
+
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+" 所生成的数据文件的名称 "
+let g:gutentags_ctags_tagfile = '.tags'
+" trace
+let g:gutentags_trace = 1 
 
 " 配置 ctags 的参数
-let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q','--output-format=e-ctags']
+" 设置 ctags 对哪些代码标识符生成标签
+set tags=./.tags;,.tags
+let g:gutentags_ctags_extra_args = ['--fields=+niazS'] 
+"let g:gutentags_ctags_extra_args += ['--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--output-format=e-ctags', '--extras=+q']
 
-" tabNext tabprev
-noremap <F11> : tabn <CR>
-noremap <F12> : tabp <CR>
-"-- Map Setting --
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"noremap <F6> :run macros/gdb_mappings.vim <CR><CR> <F7><CR>
-
-
-" bundle 
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"taglist
-Plugin 'vim-scripts/taglist.vim'
-" 漂亮的状态栏
-Plugin 'vim-airline/vim-airline'
-" airline主题
-Plugin 'vim-airline/vim-airline-themes'
-" 自动生成tags
-Plugin 'ludovicchabant/vim-gutentags'
-" acp 补全需要的
-Plugin 'eparreno/vim-l9'
-"低配版的自动补全,如果没有ycm就用这个
-Plugin 'othree/vim-autocomplpop'
-" ycm 和上面那个启用一个就ok
-"Plugin 'Valloric/YouCompleteMe'
-"source ~/vimconfig/ycm.vim
-Plugin 'a.vim'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use: filetype plugin on
-
-"  Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
+"nnoremap <Leader>ilt :TagbarToggle<CR>
+" 设置标签子窗口的宽度
+let tagbar_width=32
 
 "-- airline setting --
 let g:airline_theme='bubblegum'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#whitespace#enabled = 0
-
-
-" 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
-"nnoremap <Leader>ilt :TagbarToggle<CR>
-" 设置标签子窗口的宽度
-let tagbar_width=32
-
 nnoremap <Leader>sp :CtrlSF<CR>
+
+" 设定需要生效的文件类型，如果是 "*" 的话，代表所有类型
+let g:apc_enable_ft = {'text':1, 'markdown':1, 'cpp':1}
+" 设定从字典文件以及当前打开的文件里收集补全单词，详情看 ':help cpt'
+set cpt=.,k,w,b
+" 不要自动选中第一个选项。
+"set completeopt=menu,menuone,noselect
+" 禁止在下方显示一些啰嗦的提示
+set shortmess+=c
+
 
 "-----------taglist------------------
 filetype plugin on
